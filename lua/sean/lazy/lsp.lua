@@ -11,6 +11,8 @@ return {
 		"hrsh7th/nvim-cmp",
 		"L3MON4D3/LuaSnip",
 		"saadparwaiz1/cmp_luasnip",
+		"zbirenbaum/copilot.lua",
+		"zbirenbaum/copilot-cmp",
 	},
 
 	config = function()
@@ -18,6 +20,36 @@ return {
 			formatters_by_ft = {
 			}
 		})
+
+		require("copilot").setup({
+			panel = {
+				enaable = false,
+			},
+			suggestion = {
+				enabled = false, -- use copilot-cmp instead
+				auto_trigger = true,
+				hide_during_completion = true,
+				debounce = 75,
+				keymap = {
+					accept = "<M-l>",
+					accept_word = false,
+					accept_line = false,
+					next = "<M-]>",
+					prev = "<M-[>",
+					dismiss = "<C-]>",
+				},
+			},
+			filetypes = {
+				lua = true,
+				javascript = true,
+				typescript = true,
+				html = true,
+				["*"] = false,
+			},
+		})
+
+		require("copilot_cmp").setup()
+
 		local cmp = require('cmp')
 		local cmp_lsp = require("cmp_nvim_lsp")
 		local capabilities = vim.tbl_deep_extend(
@@ -74,8 +106,11 @@ return {
 			sources = cmp.config.sources({
 				{ name = 'nvim_lsp' },
 				{ name = 'luasnip' }, -- For luasnip users.
+				{ name = 'copilot' },
 			}, {
-					{ name = 'buffer' },
+				{ name = 'buffer' },
+				{ name = 'path' },
+				{ name = 'cmdline' },
 				})
 		})
 

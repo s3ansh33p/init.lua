@@ -20,8 +20,23 @@ vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 
 vim.opt.incsearch = true
 
+vim.opt.termguicolors = true
+
 vim.opt.scrolloff = 8
 
 vim.opt.updatetime = 50
 
 vim.g.mapleader = " "
+
+vim.opt.wrap = true
+
+-- Java to use 4 space tabs
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "java",
+  callback = function()
+    vim.bo.tabstop = 4
+    vim.bo.softtabstop = 4
+    vim.bo.shiftwidth = 4
+  end
+})
+

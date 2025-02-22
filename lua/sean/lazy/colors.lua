@@ -3,7 +3,7 @@ return {
 		"folke/tokyonight.nvim",
 		config = function()
 			require("tokyonight").setup({
-				style = "night", -- `storm`, `moon`, a darker variant `night` and `day`
+				style = "storm", -- `storm`, `moon`, a darker variant `night` and `day`
 				transparent = false, -- Enable this to disable setting the background color
 				terminal_colors = false, -- Configure the colors used when opening a `:terminal` in Neovim
 				styles = {

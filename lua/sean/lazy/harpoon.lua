@@ -19,7 +19,7 @@ return {
 		vim.keymap.set("n", "<leader><M-2>", function() harpoon:list():replace_at(2) end)
 		vim.keymap.set("n", "<leader><M-3>", function() harpoon:list():replace_at(3) end)
 		vim.keymap.set("n", "<leader><M-4>", function() harpoon:list():replace_at(4) end)
-		
+
 		vim.keymap.set("n", "<M-[>", function() harpoon:list():prev() end)
 		vim.keymap.set("n", "<M-]>", function() harpoon:list():next() end)
 	end

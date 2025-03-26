@@ -50,6 +50,8 @@ return {
         python = true,
         svelte = true,
         css = true,
+        sh = true,
+        bash = true,
         ["*"] = false,
       },
     })

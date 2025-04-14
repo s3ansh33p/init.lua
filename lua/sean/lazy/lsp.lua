@@ -20,6 +20,7 @@ return {
       formatters_by_ft = {
       }
     })
+    require('lspconfig').pyright.setup {}
 
     require("copilot").setup({
       panel = {
@@ -47,6 +48,8 @@ return {
         markdown = true,
         go = true,
         ruby = true,
+        haml = true,
+        erb = true,
         python = true,
         svelte = true,
         css = true,
